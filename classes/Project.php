@@ -8,9 +8,9 @@ require_once 'AbstractModel.php';
 class Project extends AbstractModel
 {
 
-    public function __construct($dbName, $host, $username, $password)
+    public function __construct($array)
     {
-        parent::__construct($dbName, $host, $username, $password);
+        parent::__construct($array);
     }
 
     // Create project
@@ -60,7 +60,7 @@ class Project extends AbstractModel
     {
 
         $query = "DELETE FROM projects WHERE id = :id";
-        $stmt = this->db->prepare($query);
+        $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
