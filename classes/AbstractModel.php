@@ -5,8 +5,8 @@ require_once 'Database.php';
 abstract class AbstractModel{
     protected $db;
 
-    public function __construct($dbName, $host, $username, $password) {
-        $database = new Database($dbName, $host, $username, $password);
+    public function __construct($array) {
+        $database = new Database($array);
         $this->db = $database->connectToDatabase();
     }
 

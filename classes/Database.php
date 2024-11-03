@@ -1,5 +1,13 @@
 <?php
 
+/*
+ *
+ *  Questa classe permette di stabilire una connessione con il DB.
+ *
+ *
+ */
+
+
 class Database{
     private $host;
     private $db;
@@ -10,12 +18,12 @@ class Database{
 
 
     // costruttore da migliorare
-    public function __construct($db,$host, $username = "",$password ="")
+    public function __construct($array)
     {
-        $this->db = $db;
-        $this->host = $host;
-        $this->username = $username;
-        $this->password = $password;
+        $this->db = $array['database'];
+        $this->host = $array['host'];
+        $this->username = $array['username'];
+        $this->password = $array['password'];
         $this->dsn = "mysql:host=". $this->host.";"."dbname=". $this->db . ";" . "charset=utf8mb4";
        
     }
